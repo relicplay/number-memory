@@ -20,7 +20,7 @@
     </header>
     <main>
 
-        <input type="text" id="inputfield">
+        <input type="text" id="inputfield" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');">
 
         <h1 id="testdisplay"></h1>
         
