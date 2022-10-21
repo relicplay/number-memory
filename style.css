@@ -2,3 +2,17 @@
 #testdisplay {
     color:red;
 }
+
+/*
+#randomdisplay {
+    display: flex;
+    flex-flow: row nowrap;
+    gap: 0.5em;
+}
+*/
+
+.image {
+    background-color: black;
+    width: 70px;
+    height: auto;
+}
