@@ -26,15 +26,21 @@ const addNumberImages = (targetId, array) => {
         image.setAttribute("alt","Image");
         image.setAttribute("id",`image${index}`);
         image.classList.add("image");
-        image.classList.add("image-hide");
+        //image.classList.add("image-hide");
         document.querySelector(targetId).appendChild(image);
+    });
+}
+
+const hideNumberImages = (array) => {
+    array.forEach((element, index) => {
+        const image = document.querySelector(`#image${index}`);
+        image.classList.add("image-hide");
     });
 }
 
 
 const compareNumbers = (guessedNumber, actualNumber) => {
     //displayContent(`${userInputField.value[position]} VS ${randomNumbers[position]}`, testDisplay);
-    //document.body.style.backgroundColor = "white";
     guessedNumber == actualNumber ? getPoint(userInputField.value.length-1) : gameResult(userInputField.value.length, false);
 }
 
@@ -98,6 +104,7 @@ const killTimer = (timerId) => {
     resetClassLists(document.querySelector('.loadingscreen'));
     document.querySelector('.loadingscreen').classList.add('hide');
     document.querySelector('.controls').classList.add('show');
+    hideNumberImages(randomNumbers);
 }
 
 const resetGame = () => {

@@ -45,19 +45,22 @@ body {
     background-repeat: no-repeat;
 }
 
-.startscreen button {
+.button {
     cursor: pointer;
     font-family: var(--headerFont);
-    font-size: var(--headerLarge);
     text-transform: uppercase;
     border-radius: 10px;
     padding: 0.5em 1em;
     background-color: transparent;
     transition: background-color 1s ease-out;
 }
-.startscreen button:hover {
+.button:hover {
     color: red;
     background-color: #eee;
+}
+
+.startscreen button {
+    font-size: var(--headerLarge);
 }
 
 .gamescreen {
@@ -162,7 +165,7 @@ body {
 
 .image-hide {
     /*should be set to 0 in final version*/
-    opacity: 0.2;
+    opacity: 0;
 }
 
 
