@@ -146,6 +146,7 @@ body {
     display: flex;
     flex-flow: row wrap;
     padding: 1em 1em;
+    border-radius: 25px 25px 0 0;
     /*
     gap: 0.5em;
     */
