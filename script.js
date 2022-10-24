@@ -7,7 +7,6 @@ let position = 0;
 userInputField.addEventListener("input", () => {
     userInputField.value = onlyAllowNumbers(userInputField.value);
     if (userInputField.value.length > 0) {position=userInputField.value.length-1;}
-    console.log(position);
     compareNumbers(userInputField.value[position], randomNumbers[position]);
   }
   );
@@ -26,7 +25,6 @@ const addNumberImages = (targetId, array) => {
 
 
 const showImage = (id) => {
-    console.log('ID: '+id);
     image = document.querySelector(`#image${id}`);
     if (image) {
         image.classList.remove("image-hide");
