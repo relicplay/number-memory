@@ -78,7 +78,6 @@ body {
     flex-flow: column nowrap;
     justify-content: center;
     align-items: center;
-    background-color: pink;
     width: 100%;
     padding: 4em 0;
 }
