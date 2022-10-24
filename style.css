@@ -73,6 +73,7 @@ body {
     text-transform: uppercase;
     text-align: center;
     color: #000;
+    letter-spacing: 0.2em;
 }
 
 #inputfield {
@@ -99,6 +100,7 @@ body {
 }
 
 .image-hide {
+    /*should be set to 0 in final version*/
     opacity: 0.2;
 }
 
