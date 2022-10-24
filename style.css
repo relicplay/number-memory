@@ -145,6 +145,7 @@ body {
     background-color: #000;
     display: flex;
     flex-flow: row wrap;
+    padding: 1em 1em;
     /*
     gap: 0.5em;
     */
