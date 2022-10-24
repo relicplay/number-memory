@@ -115,5 +115,6 @@ const resetGame = () => {
 const init = () => {
     document.querySelector('.startscreen').classList.add('hide');
     document.querySelector('.gamescreen').classList.add('show');
+    document.querySelector('main').classList.add('main-boxshadow');
     resetGame();
 }
