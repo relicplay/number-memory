@@ -26,18 +26,9 @@ const addNumberImages = (targetId, array) => {
 
 
 const compareNumbers = (guessedNumber, actualNumber) => {
-    displayContent(`${userInputField.value[position]} VS ${randomNumbers[position]}`, testDisplay);
+    //displayContent(`${userInputField.value[position]} VS ${randomNumbers[position]}`, testDisplay);
     document.body.style.backgroundColor = "white";
     guessedNumber == actualNumber ? getPoint(userInputField.value.length-1) : gameOver(userInputField.value.length);
-    /*
-    if (guessedNumber == actualNumber) {
-      document.body.style.backgroundColor = "blue";
-      showImage(userInputField.value.length-1);
-    }
-    else {
-        gameOver(userInputField.value.length);
-    }
-    */
 }
 
 const getPoint = (currentNumberPosition) => {
