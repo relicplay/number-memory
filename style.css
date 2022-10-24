@@ -15,4 +15,10 @@
     background-color: black;
     width: 70px;
     height: auto;
+    opacity: 1;
+    transition: opacity 3s;
+}
+
+.image-hide {
+    opacity: 0;
 }
