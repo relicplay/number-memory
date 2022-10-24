@@ -1,3 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+:root {
+    font-size: 100%;
+
+    --headerFont: 'Oswald', sans-serif;
+    --regularFont: 'Roboto Slab', serif;
+
+    --headerLarge: 3em;
+    --headerMedium: 2em;
+    --headerSmall: 1em;
+}
+
 
 body {
     margin: 0;
@@ -17,6 +35,10 @@ body {
     color:red;
 }
 
+#inputfield {
+    font-family: var(--headerFont);
+    font-size: var(--headerLarge);
+}
 
 #randomdisplay {
     background-color: #000;
