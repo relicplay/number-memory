@@ -1,6 +1,7 @@
 const userInputField = document.querySelector('#inputfield');
 const testDisplay = document.querySelector('#testdisplay');
 const startButton = document.querySelector('#startbutton');
+const loaderCounter = document.querySelector('#counter');
 
 let randomNumbers = [];
 let position = 0;
@@ -77,6 +78,28 @@ const randomizeNumbers = (iterations) => {
     //return [1,3,6,5,5,8,9,2,3,2,1,1,4,8,9,3,9];
 }
 
+const resetClassLists = (targetElement) => {
+    targetElement.classList.remove('show');
+    targetElement.classList.remove('hide');
+}
+
+const startTimer = (secondsleft) => {
+    loaderCounter.textContent = secondsleft;
+    document.querySelector('.loadingscreen').classList.add('show');
+    let timer = () => {
+        loaderCounter.textContent = secondsleft;
+        secondsleft > 0 ? secondsleft-- : killTimer(timerId);
+    }
+    let timerId = setInterval(timer, 1000);
+}
+
+const killTimer = (timerId) => {
+    clearInterval(timerId);
+    resetClassLists(document.querySelector('.loadingscreen'));
+    document.querySelector('.loadingscreen').classList.add('hide');
+    document.querySelector('.controls').classList.add('show');
+}
+
 const resetGame = () => {
     randomNumbers = randomizeNumbers(16);
     totalnumbers=randomNumbers.length;
@@ -84,6 +107,9 @@ const resetGame = () => {
     addNumberImages('#randomdisplay', randomNumbers);
     userInputField.disabled = false;
     document.body.classList.remove('gameover');
+    resetClassLists(document.querySelector('.controls'));
+    document.querySelector('.controls').classList.add('hide');
+    startTimer(5);
 }
 
 const init = () => {

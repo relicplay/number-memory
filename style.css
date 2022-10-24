@@ -76,6 +76,11 @@ body {
     align-items: center;
     background-color: pink;
     width: 100%;
+    padding: 4em 0;
+}
+
+.controls, .loadingscreen {
+    min-height: 30vh;
 }
 
 .loader {
@@ -134,7 +139,7 @@ body {
 #randomdisplay {
     background-color: #000;
     display: flex;
-    flex-flow: row nowrap;
+    flex-flow: row wrap;
     /*
     gap: 0.5em;
     */
