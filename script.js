@@ -2,7 +2,7 @@ const userInputField = document.querySelector('#inputfield');
 const testDisplay = document.querySelector('#testdisplay');
 const startButton = document.querySelector('#startbutton');
 
-let randomNumbers = [1,3,6,5,5,8,9,2,3,2,1,1,4,8,9,3,9];
+let randomNumbers = [];
 let position = 0;
 let totalnumbers = 0;
 
@@ -33,14 +33,14 @@ const addNumberImages = (targetId, array) => {
 
 const compareNumbers = (guessedNumber, actualNumber) => {
     //displayContent(`${userInputField.value[position]} VS ${randomNumbers[position]}`, testDisplay);
-    document.body.style.backgroundColor = "white";
-    guessedNumber == actualNumber ? getPoint(userInputField.value.length-1) : gameOver(userInputField.value.length);
+    //document.body.style.backgroundColor = "white";
+    guessedNumber == actualNumber ? getPoint(userInputField.value.length-1) : gameResult(userInputField.value.length, false);
 }
 
 const getPoint = (currentNumberPosition) => {
     showImage(currentNumberPosition);
     if (currentNumberPosition >= totalnumbers-1) {
-        winGame(userInputField.value.length);
+        gameResult(userInputField.value.length, true);
     } 
 }
 
@@ -64,22 +64,30 @@ const clearContent = (targetId) => {
     document.querySelector(targetId).innerHTML='';
 }
 
-const gameOver = (strLen) => {
-    document.body.style.backgroundColor = "red";
+const gameResult = (strLen, outcome) => {
+    //outcome: true = winner, false = loser
+    if (!outcome) {document.body.classList.add('gameover');}
     userInputField.maxLength = strLen;
-    displayContent('Fail!', document.querySelector('#resultmessage'));
+    userInputField.disabled = true;
+    displayContent(outcome ? 'Success!' : 'Fail!', document.querySelector('#resultmessage'));
 }
 
-const winGame = (strLen) => {
-    console.log('WINNER!');
-    userInputField.maxLength = strLen;
-    displayContent('Success!', document.querySelector('#resultmessage'));
+const randomizeNumbers = (iterations) => {
+    return Array(iterations).fill().map(() => Math.round((Math.random() * 8) + 1));
+    //return [1,3,6,5,5,8,9,2,3,2,1,1,4,8,9,3,9];
+}
+
+const resetGame = () => {
+    randomNumbers = randomizeNumbers(16);
+    totalnumbers=randomNumbers.length;
+    clearContent('#randomdisplay');
+    addNumberImages('#randomdisplay', randomNumbers);
+    userInputField.disabled = false;
+    document.body.classList.remove('gameover');
 }
 
 const init = () => {
     document.querySelector('.startscreen').classList.add('hide');
     document.querySelector('.gamescreen').classList.add('show');
-    totalnumbers=randomNumbers.length;
-    clearContent('#randomdisplay');
-    addNumberImages('#randomdisplay', randomNumbers);
+    resetGame();
 }

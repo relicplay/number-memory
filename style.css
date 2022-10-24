@@ -110,3 +110,7 @@ body {
 .show {
     display: flex;
 }
+
+.gameover {
+    background-color: red;
+}
