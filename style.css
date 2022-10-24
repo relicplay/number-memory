@@ -14,12 +14,15 @@
     --headerLarge: 3em;
     --headerMedium: 2em;
     --headerSmall: 1em;
+
+    --bgcol: #364765;
 }
 
 
 body {
     margin: 0;
     padding: 0;
+    background-color: var(--bgcol);
 }
 
 .wrapper {
@@ -35,6 +38,29 @@ body {
     background-repeat: no-repeat;
 }
 
+.startscreen button {
+    cursor: pointer;
+    font-family: var(--headerFont);
+    font-size: var(--headerLarge);
+    text-transform: uppercase;
+    border-radius: 10px;
+    padding: 0.5em 1em;
+    background-color: transparent;
+    transition: background-color 1s ease-out;
+}
+.startscreen button:hover {
+    color: red;
+    background-color: #eee;
+}
+
+.gamescreen {
+    display: none;
+    flex-flow: column nowrap;
+    background-color: green;
+    width: 100%;
+
+}
+
 #testdisplay {
     color:red;
 }
@@ -44,6 +70,7 @@ body {
     padding: 0;
     font-family: var(--headerFont);
     font-size: var(--headerLarge);
+    text-transform: uppercase;
     text-align: center;
     color: #000;
 }
@@ -73,4 +100,13 @@ body {
 
 .image-hide {
     opacity: 0.2;
+}
+
+
+.hide {
+    display: none;
+}
+
+.show {
+    display: flex;
 }
