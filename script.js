@@ -1,5 +1,6 @@
 const userInputField = document.querySelector('#inputfield');
 const testDisplay = document.querySelector('#testdisplay');
+const startButton = document.querySelector('#startbutton');
 
 let randomNumbers = [1,3,6,5,5,8,9,2,3,2,1,1,4,8,9,3,9];
 let position = 0;
@@ -10,7 +11,12 @@ userInputField.addEventListener("input", () => {
     if (userInputField.value.length > 0) {position=userInputField.value.length-1;}
     compareNumbers(userInputField.value[position], randomNumbers[position]);
   }
-  );
+);
+
+startButton.addEventListener("click", () => {
+    init();
+  }
+);
 
 const addNumberImages = (targetId, array) => {
     array.forEach((element, index) => {
@@ -61,17 +67,19 @@ const clearContent = (targetId) => {
 const gameOver = (strLen) => {
     document.body.style.backgroundColor = "red";
     userInputField.maxLength = strLen;
+    displayContent('Fail!', document.querySelector('#resultmessage'));
 }
 
 const winGame = (strLen) => {
     console.log('WINNER!');
     userInputField.maxLength = strLen;
+    displayContent('Success!', document.querySelector('#resultmessage'));
 }
 
 const init = () => {
+    document.querySelector('.startscreen').classList.add('hide');
+    document.querySelector('.gamescreen').classList.add('show');
     totalnumbers=randomNumbers.length;
     clearContent('#randomdisplay');
     addNumberImages('#randomdisplay', randomNumbers);
 }
-
-init();
