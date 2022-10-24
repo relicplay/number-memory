@@ -138,6 +138,7 @@ body {
 #inputfield {
     font-family: var(--headerFont);
     font-size: var(--headerLarge);
+    padding-left: 1em;
 }
 
 #randomdisplay {
