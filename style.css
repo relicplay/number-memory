@@ -63,6 +63,12 @@ body {
     width: 100%;
 }
 
+.controls {
+    display: flex;
+    flex-flow: column nowrap;
+    width: 100%;
+}
+
 .loadingscreen {
     display: flex;
     flex-flow: column nowrap;
