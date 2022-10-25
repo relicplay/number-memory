@@ -34,7 +34,7 @@ resetButton.addEventListener("click", () => {
 );
 
 nextButton.addEventListener("click", () => {
-    level++;
+    level < 100 ? level++ : level=level;
     resetGame();
   }
 );
