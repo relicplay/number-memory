@@ -144,10 +144,6 @@ body {
     -ms-animation: var(--loaderanimation-rev);
 }
 
-#testdisplay {
-    color:red;
-}
-
 #resultmessage {
     margin: 0;
     padding: 0;
