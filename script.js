@@ -7,6 +7,8 @@ const nextButton = document.querySelector('#nextbutton');
 const loaderCounter = document.querySelector('#counter');
 const resultMessage = document.querySelector('#resultmessage');
 
+const maxlevel = 100;
+
 let randomNumbers = [];
 let position = 0;
 let level = 1;
@@ -34,7 +36,7 @@ resetButton.addEventListener("click", () => {
 );
 
 nextButton.addEventListener("click", () => {
-    level < 100 ? level++ : level=level;
+    level < maxlevel ? level++ : level;
     resetGame();
   }
 );
