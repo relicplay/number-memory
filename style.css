@@ -38,6 +38,7 @@ body {
     justify-content: center;
     align-items: center;
     width: 100%;
+    min-width: 280px;
     min-height: 100vh;
     background-image:linear-gradient(to bottom, black, transparent, black);
     background-position: center;
