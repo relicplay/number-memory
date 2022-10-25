@@ -156,6 +156,8 @@ body {
 }
 
 #inputfield {
+    width: 95%;
+    align-self: center;
     font-family: var(--headerFont);
     font-size: var(--headerLarge);
     padding-left: 1em;
