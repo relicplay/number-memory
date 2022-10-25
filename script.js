@@ -3,9 +3,11 @@ const testDisplay = document.querySelector('#testdisplay');
 const startButton = document.querySelector('#startbutton');
 const resetButton = document.querySelector('#resetbutton');
 const loaderCounter = document.querySelector('#counter');
+const resultMessage = document.querySelector('#resultmessage');
 
 let randomNumbers = [];
 let position = 0;
+let level = 1;
 
 userInputField.addEventListener("input", () => {
     userInputField.value = onlyAllowNumbers(userInputField.value);
@@ -113,7 +115,7 @@ const killTimer = (timerId) => {
 
 const resetGame = () => {
     userInputField.value = '';
-    randomNumbers = randomizeNumbers(6);
+    randomNumbers = randomizeNumbers(16);
     userInputField.maxLength = randomNumbers.length;
     clearContent('#randomdisplay');
     addNumberImages('#randomdisplay', randomNumbers);
@@ -122,6 +124,7 @@ const resetGame = () => {
     resetClassLists(document.querySelector('.controls'));
     document.querySelector('.controls').classList.add('hide');
     startTimer(5);
+    resultMessage.textContent = `Level ${level}`;
 }
 
 const init = () => {
