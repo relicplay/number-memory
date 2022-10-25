@@ -28,6 +28,15 @@ body {
     background-color: var(--bgcol);
 }
 
+main {
+    width: 100%;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    max-width: 1900px;
+}
+
 .main-boxshadow {
     box-shadow: rgba(255, 255, 255, 0.35) 0px 5px 15px;
 }
@@ -40,6 +49,8 @@ body {
     width: 100%;
     min-width: 280px;
     min-height: 100vh;
+    margin: 0;
+    padding: 0 2em;
     background-image:linear-gradient(to bottom, black, transparent, black);
     background-position: center;
     background-size: cover;
@@ -165,18 +176,16 @@ body {
 
 #randomdisplay {
     background-color: #000;
-    display: flex;
-    flex-flow: row wrap;
-    padding: 1em 1em;
     border-radius: 25px 25px 0 0;
-    /*
-    gap: 0.5em;
-    */
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 72px);
+    grid-gap: 5px;
+    justify-content: center;
 }
 
 
 .image {
-    background-color: black;
+    background-color: red;
     width: 70px;
     height: auto;
     opacity: 1;
