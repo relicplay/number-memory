@@ -2,6 +2,7 @@ const userInputField = document.querySelector('#inputfield');
 const testDisplay = document.querySelector('#testdisplay');
 const startButton = document.querySelector('#startbutton');
 const resetButton = document.querySelector('#resetbutton');
+const nextButton = document.querySelector('#nextbutton');
 const loaderCounter = document.querySelector('#counter');
 const resultMessage = document.querySelector('#resultmessage');
 
@@ -22,6 +23,12 @@ startButton.addEventListener("click", () => {
 );
 
 resetButton.addEventListener("click", () => {
+    resetGame();
+  }
+);
+
+nextButton.addEventListener("click", () => {
+    level++;
     resetGame();
   }
 );
@@ -115,7 +122,7 @@ const killTimer = (timerId) => {
 
 const resetGame = () => {
     userInputField.value = '';
-    randomNumbers = randomizeNumbers(16);
+    randomNumbers = randomizeNumbers(5+level);
     userInputField.maxLength = randomNumbers.length;
     clearContent('#randomdisplay');
     addNumberImages('#randomdisplay', randomNumbers);
