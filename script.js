@@ -7,12 +7,15 @@ const nextButton = document.querySelector('#nextbutton');
 const loaderCounter = document.querySelector('#counter');
 const resultMessage = document.querySelector('#resultmessage');
 const levelSlider = document.querySelector('#levelslider');
+const levelDisplay = document.querySelector('#leveldisplay');
 
 const maxlevel = levelSlider.max;
 
 let randomNumbers = [];
 let position = 0;
 let level = 1;
+
+levelDisplay.textContent = level;
 
 userInputField.addEventListener("input", () => {
     userInputField.value = onlyAllowNumbers(userInputField.value);
@@ -21,8 +24,9 @@ userInputField.addEventListener("input", () => {
   }
 );
 
-levelSlider.addEventListener("change", () => {
+levelSlider.addEventListener("input", () => {
     level = parseInt(levelSlider.value);
+    levelDisplay.textContent = level;
   }
 );
 
