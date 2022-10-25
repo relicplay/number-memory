@@ -1,11 +1,11 @@
 const userInputField = document.querySelector('#inputfield');
 const testDisplay = document.querySelector('#testdisplay');
 const startButton = document.querySelector('#startbutton');
+const resetButton = document.querySelector('#resetbutton');
 const loaderCounter = document.querySelector('#counter');
 
 let randomNumbers = [];
 let position = 0;
-let totalnumbers = 0;
 
 userInputField.addEventListener("input", () => {
     userInputField.value = onlyAllowNumbers(userInputField.value);
@@ -19,6 +19,11 @@ startButton.addEventListener("click", () => {
   }
 );
 
+resetButton.addEventListener("click", () => {
+    resetGame();
+  }
+);
+
 const addNumberImages = (targetId, array) => {
     array.forEach((element, index) => {
         const image = document.createElement('img');
@@ -26,7 +31,6 @@ const addNumberImages = (targetId, array) => {
         image.setAttribute("alt","Image");
         image.setAttribute("id",`image${index}`);
         image.classList.add("image");
-        //image.classList.add("image-hide");
         document.querySelector(targetId).appendChild(image);
     });
 }
@@ -46,7 +50,7 @@ const compareNumbers = (guessedNumber, actualNumber) => {
 
 const getPoint = (currentNumberPosition) => {
     showImage(currentNumberPosition);
-    if (currentNumberPosition >= totalnumbers-1) {
+    if (currentNumberPosition >= randomNumbers.length-1) {
         gameResult(userInputField.value.length, true);
     } 
 }
@@ -108,8 +112,9 @@ const killTimer = (timerId) => {
 }
 
 const resetGame = () => {
-    randomNumbers = randomizeNumbers(16);
-    totalnumbers=randomNumbers.length;
+    userInputField.value = '';
+    randomNumbers = randomizeNumbers(6);
+    userInputField.maxLength = randomNumbers.length;
     clearContent('#randomdisplay');
     addNumberImages('#randomdisplay', randomNumbers);
     userInputField.disabled = false;
