@@ -63,6 +63,7 @@ body {
     padding: 0.5em 1em;
     background-color: transparent;
     transition: background-color 1s ease-out;
+    font-size: var(--headerMedium);
 }
 .button:hover {
     color: red;
@@ -83,6 +84,7 @@ body {
 .controls {
     display: flex;
     flex-flow: column nowrap;
+    justify-content: space-around;
     width: 100%;
 }
 
