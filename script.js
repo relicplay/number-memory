@@ -94,9 +94,16 @@ const clearContent = (targetId) => {
 
 const gameResult = (strLen, outcome) => {
     //outcome: true = winner, false = loser
-    if (!outcome) {document.body.classList.add('gameover');}
     userInputField.maxLength = strLen;
     userInputField.disabled = true;
+    if (!outcome) {
+        document.body.classList.add('gameover');
+        lockButton('#retrybutton', false);
+        lockButton('#resetbutton', false);
+    }
+    else {
+        lockButton('#nextbutton', false);
+    }
     displayContent(outcome ? 'Success!' : 'Fail!', document.querySelector('#resultmessage'));
 }
 
@@ -128,8 +135,16 @@ const killTimer = (timerId) => {
     hideNumberImages(randomNumbers);
 }
 
+const lockButton = (buttonId, buttonStatus) => {
+    document.querySelectorAll(buttonId).forEach(element => {
+        element.disabled = buttonStatus;
+        buttonStatus === true ? element.classList.add('nohover') : element.classList.remove('nohover');
+    });
+}
+
 const resetGame = (retry) => {
     userInputField.value = '';
+    lockButton('.buttonwrapper button', true);
     if (retry === undefined) {
         randomNumbers = randomizeNumbers(3+level);
     }
