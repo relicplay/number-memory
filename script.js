@@ -1,6 +1,7 @@
 const userInputField = document.querySelector('#inputfield');
 const testDisplay = document.querySelector('#testdisplay');
 const startButton = document.querySelector('#startbutton');
+const retryButton = document.querySelector('#retrybutton');
 const resetButton = document.querySelector('#resetbutton');
 const nextButton = document.querySelector('#nextbutton');
 const loaderCounter = document.querySelector('#counter');
@@ -19,6 +20,11 @@ userInputField.addEventListener("input", () => {
 
 startButton.addEventListener("click", () => {
     init();
+  }
+);
+
+retryButton.addEventListener("click", () => {
+    resetGame(false);
   }
 );
 
@@ -120,9 +126,11 @@ const killTimer = (timerId) => {
     hideNumberImages(randomNumbers);
 }
 
-const resetGame = () => {
+const resetGame = (retry) => {
     userInputField.value = '';
-    randomNumbers = randomizeNumbers(5+level);
+    if (retry === undefined) {
+        randomNumbers = randomizeNumbers(3+level);
+    }
     userInputField.maxLength = randomNumbers.length;
     clearContent('#randomdisplay');
     addNumberImages('#randomdisplay', randomNumbers);
