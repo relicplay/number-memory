@@ -6,8 +6,9 @@ const resetButton = document.querySelector('#resetbutton');
 const nextButton = document.querySelector('#nextbutton');
 const loaderCounter = document.querySelector('#counter');
 const resultMessage = document.querySelector('#resultmessage');
+const levelSlider = document.querySelector('#levelslider');
 
-const maxlevel = 100;
+const maxlevel = levelSlider.max;
 
 let randomNumbers = [];
 let position = 0;
@@ -17,6 +18,11 @@ userInputField.addEventListener("input", () => {
     userInputField.value = onlyAllowNumbers(userInputField.value);
     if (userInputField.value.length > 0) {position=userInputField.value.length-1;}
     compareNumbers(userInputField.value[position], randomNumbers[position]);
+  }
+);
+
+levelSlider.addEventListener("change", () => {
+    level = parseInt(levelSlider.value);
   }
 );
 

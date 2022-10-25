@@ -67,9 +67,7 @@ main {
     padding: 0;
 }
 
-.nohover {
-    
-}
+
 .button {
     cursor: pointer;
     font-family: var(--headerFont);
@@ -103,13 +101,19 @@ main {
     width: 100%;
 }
 
-.loadingscreen {
+.loadingscreen, .startscreen {
     display: flex;
     flex-flow: column nowrap;
     justify-content: center;
     align-items: center;
     width: 100%;
     padding: 4em 0;
+}
+
+.startscreen {
+    background-color: pink;
+    justify-content: space-between;
+    align-items: space-between;
 }
 
 .loadertext {
