@@ -94,8 +94,8 @@ const displayContent = (content, targetElement) => {
 }
 
 const clearContent = (targetId) => {
-    //mend this later:
-    document.querySelector(targetId).innerHTML='';
+    const element = document.querySelector(targetId);
+    while (element.firstChild) element.removeChild(element.firstChild);
 }
 
 const gameResult = (strLen, outcome) => {
