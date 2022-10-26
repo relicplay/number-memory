@@ -1,21 +1,22 @@
-const userInputField = document.querySelector('#inputfield');
-const testDisplay = document.querySelector('#testdisplay');
-const startButton = document.querySelector('#startbutton');
-const retryButton = document.querySelector('#retrybutton');
-const resetButton = document.querySelector('#resetbutton');
-const nextButton = document.querySelector('#nextbutton');
-const skipButton = document.querySelector('#skipbutton');
-const loaderCounter = document.querySelector('#counter');
-const resultMessage = document.querySelector('#resultmessage');
-const levelSlider = document.querySelector('#levelslider');
-const levelDisplay = document.querySelector('#leveldisplay');
+const userInputField = document.querySelector('#inputfield'),
+testDisplay = document.querySelector('#testdisplay'),
+startButton = document.querySelector('#startbutton'),
+retryButton = document.querySelector('#retrybutton'),
+resetButton = document.querySelector('#resetbutton'),
+nextButton = document.querySelector('#nextbutton'),
+skipButton = document.querySelector('#skipbutton'),
+loaderCounter = document.querySelector('#counter'),
+resultMessage = document.querySelector('#resultmessage'),
+levelSlider = document.querySelector('#levelslider'),
+levelDisplay = document.querySelector('#leveldisplay');
 
 const maxlevel = levelSlider.max;
 
-let randomNumbers = [];
-let position = 0;
-let level = 1;
-let secondsleft;
+let randomNumbers = [],
+position = 0,
+level = 1,
+secondsleft;
+
 
 levelDisplay.textContent = level;
 
