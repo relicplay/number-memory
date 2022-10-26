@@ -233,6 +233,10 @@ main {
     max-width: 500px;
 }
 
+#leveldisplay {
+    color: red;
+}
+
 #counter {
     display: flex;
     flex-flow: row nowrap;
@@ -311,10 +315,6 @@ main {
 .gameover {
     background-color: var(--gameoverCol);
 }
-
-
-
-
 
 
 input[type=range] {
