@@ -19,6 +19,8 @@
 
     --loaderanimation: spin 0.5s linear infinite;
     --loaderanimation-rev: spin-rev 0.5s linear infinite;
+
+    --breakingpoint: 768px;
 }
 
 
@@ -233,11 +235,23 @@ main {
 
 
 @keyframes spin {
-    from { -webkit-transform: rotate(0deg);   }
+    from { -webkit-transform: rotate(0deg); }
     to {   -webkit-transform: rotate(360deg); }
 }
 
 @keyframes spin-rev {
-    from { -webkit-transform: rotate(360deg);   }
+    from { -webkit-transform: rotate(360deg); }
     to {   -webkit-transform: rotate(0deg); }
+}
+
+
+
+@media only screen and (max-width: 768px) {
+    .image {
+        width: 30px;
+    }
+    #randomdisplay {
+        grid-template-columns: repeat(auto-fill, 32px);
+        grid-gap: 2px;
+    }
 }

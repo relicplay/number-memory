@@ -55,6 +55,7 @@ nextButton.addEventListener("click", () => {
 
 skipButton.addEventListener("click", () => {
     secondsleft = 0;
+    loaderCounter.textContent = secondsleft;
   }
 );
 
