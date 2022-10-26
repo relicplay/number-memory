@@ -4,6 +4,7 @@ const startButton = document.querySelector('#startbutton');
 const retryButton = document.querySelector('#retrybutton');
 const resetButton = document.querySelector('#resetbutton');
 const nextButton = document.querySelector('#nextbutton');
+const skipButton = document.querySelector('#skipbutton');
 const loaderCounter = document.querySelector('#counter');
 const resultMessage = document.querySelector('#resultmessage');
 const levelSlider = document.querySelector('#levelslider');
@@ -14,6 +15,7 @@ const maxlevel = levelSlider.max;
 let randomNumbers = [];
 let position = 0;
 let level = 1;
+let secondsleft;
 
 levelDisplay.textContent = level;
 
@@ -48,6 +50,11 @@ resetButton.addEventListener("click", () => {
 nextButton.addEventListener("click", () => {
     level < maxlevel ? level++ : level;
     resetGame();
+  }
+);
+
+skipButton.addEventListener("click", () => {
+    secondsleft = 0;
   }
 );
 
@@ -127,7 +134,7 @@ const resetClassLists = (targetElement) => {
     targetElement.classList.remove('hide');
 }
 
-const startTimer = (secondsleft) => {
+const startTimer = () => {
     loaderCounter.textContent = secondsleft;
     document.querySelector('.loadingscreen').classList.add('show');
     let timer = () => {
@@ -165,7 +172,8 @@ const resetGame = (retry) => {
     document.body.classList.remove('gameover');
     resetClassLists(document.querySelector('.controls'));
     document.querySelector('.controls').classList.add('hide');
-    startTimer(5);
+    secondsleft = 10;
+    startTimer();
     resultMessage.textContent = `Level ${level}`;
 }
 
