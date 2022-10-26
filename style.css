@@ -258,6 +258,8 @@ main {
     background-position: center bottom, center top, center;
     background-size: 100% 2px, 100% 2px, cover;
     box-shadow: var(--boxshadow);
+    text-shadow: 2px 2px #000;
+    text-align: center;
 }
 
 #randomdisplay {
