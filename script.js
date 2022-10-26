@@ -114,6 +114,7 @@ const gameResult = (strLen, outcome) => {
     //outcome: true = winner, false = loser
     userInputField.maxLength = strLen;
     userInputField.disabled = true;
+    userInputField.blur();
     if (!outcome) {
         document.body.classList.add('gameover');
         lockButton('#retrybutton', false);
@@ -151,6 +152,7 @@ const killTimer = (timerId) => {
     document.querySelector('.loadingscreen').classList.add('hide');
     document.querySelector('.controls').classList.add('show');
     hideNumberImages(randomNumbers);
+    userInputField.focus();
 }
 
 const lockButton = (buttonId, buttonStatus) => {
