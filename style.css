@@ -20,11 +20,29 @@
     --textSizeSmall: 0.5em;
 
     --bgcol: #364765;
+    --bgcolBox: rgba(255,255,255,0.1);
+
+    --boxBorderRadius: 25px 25px 0 0;
+    --boxshadow: rgba(255, 255, 255, 0.35) 0px 5px 15px;
 
     --loaderanimation: spin 0.5s linear infinite;
     --loaderanimation-rev: spin-rev 0.5s linear infinite;
 
     --titlecol: #fff;
+    --gameoverCol: rgba(255,0,0,0.5);
+}
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+color: rgba(255,255,255,0.5);
+opacity: 1; /* Firefox */
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+color: rgba(255,255,255,0.5);
+}
+
+::-ms-input-placeholder { /* Microsoft Edge */
+color: rgba(255,255,255,0.5);
 }
 
 
@@ -72,7 +90,9 @@ main {
 }
 
 .main-boxshadow {
-    box-shadow: rgba(255, 255, 255, 0.35) 0px 5px 15px;
+    border-radius: var(--boxBorderRadius);
+    box-shadow: var(--boxshadow);
+    overflow: hidden;
 }
 
 .wrapper {
@@ -125,7 +145,7 @@ main {
 .gamescreen {
     display: none;
     flex-flow: column nowrap;
-    background-color: green;
+    background-color: var(--bgcolBox);
     width: 100%;
 }
 
@@ -146,10 +166,10 @@ main {
 }
 
 .slidercontainer {
+    width: 90%;
     display: flex;
     flex-flow: column nowrap;
     text-align: center;
-    background-color: red;
 }
 
 .slidercontainer h1 {
@@ -215,8 +235,12 @@ main {
     font-size: var(--headerLarge);
     font-size: clamp(var(--headerMedium), 5vw, var(--headerLarge));
     text-align: center;
-    color: #000;
+    color: rgba(0,0,0,0.8);
     letter-spacing: 0.2em;
+    background-image: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.35), transparent);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
 }
 
 #inputfield {
@@ -226,15 +250,24 @@ main {
     font-size: var(--headerLarge);
     font-size: clamp(var(--headerSmall), 4vw, var(--headerLarge));
     padding-left: 0.5em;
+    border: 0;
+    background-color: transparent;
+    color: gold;
+    background-image: linear-gradient(to right, transparent, gold, transparent), linear-gradient(to right, transparent, gold, transparent), linear-gradient(to right, transparent, rgba(0, 0, 0, 0.35), transparent);
+    background-repeat: no-repeat;
+    background-position: center bottom, center top, center;
+    background-size: 100% 2px, 100% 2px, cover;
+    box-shadow: var(--boxshadow);
 }
 
 #randomdisplay {
     background-color: #000;
-    border-radius: 25px 25px 0 0;
     display: grid;
     grid-template-columns: repeat(auto-fill, 72px);
     grid-gap: 5px;
     justify-content: center;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.35);
+    box-shadow: var(--boxshadow);
 }
 
 
@@ -260,7 +293,7 @@ main {
 }
 
 .gameover {
-    background-color: red;
+    background-color: var(--gameoverCol);
 }
 
 
