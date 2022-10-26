@@ -169,6 +169,7 @@ main {
     width: 90%;
     display: flex;
     flex-flow: column nowrap;
+    align-items: center;
     text-align: center;
 }
 
@@ -212,6 +213,10 @@ main {
     -webkit-animation: var(--loaderanimation);
     -moz-animation: var(--loaderanimation);
     -ms-animation: var(--loaderanimation);
+}
+
+#levelslider {
+    max-width: 500px;
 }
 
 #counter {
