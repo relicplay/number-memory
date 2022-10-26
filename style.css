@@ -110,6 +110,7 @@ main {
     background-color: transparent;
     transition: background-color 1s ease-out;
     font-size: var(--headerMedium);
+    font-size: clamp(var(--headerSmall), 5vw, var(--headerMedium));
 }
 .button:not(.nohover):hover {
     color: red;
@@ -118,6 +119,7 @@ main {
 
 .startscreen button {
     font-size: var(--headerLarge);
+    font-size: clamp(var(--headerMedium), 5vw, var(--headerLarge));
 }
 
 .gamescreen {
@@ -161,11 +163,14 @@ main {
     padding: 0;
     font-family: var(--headerFont);
     font-size: var(--headerMedium);
+    font-size: clamp(var(--headerSmall), 3vw, var(--headerMedium));
 }
 
 .loadertext {
+    width: 90%;
     font-family: var(--regularFont);
     font-size: 1.5em;
+    font-size: clamp(0.8em, 4vw, 1.5em);
     font-weight: 700;
     text-align: center;
     /*margin: 0.5em 0 0 0;*/
@@ -173,10 +178,13 @@ main {
 }
 
 .controls, .loadingscreen {
-    min-height: 32vh;
+    min-height: 40vh;
 }
 
 .loader {
+    font-family: var(--headerFont);
+    font-size: var(--headerLarge);
+    font-size: clamp(var(--headerMedium), 5vw, var(--headerLarge));
     display: flex;
     flex-flow: column nowrap;
     align-items: center;
@@ -184,8 +192,8 @@ main {
     border: 16px solid #f3f3f3;
     border-top: 16px solid #3498db;
     border-radius: 50%;
-    width: 120px;
-    height: 120px;
+    width: 3em;
+    height: 3em;
     transform: rotate(45deg);
     animation: var(--loaderanimation);
     -webkit-animation: var(--loaderanimation);
@@ -200,8 +208,6 @@ main {
     align-items: center;
     width: 100%;
     height: 100%;
-    font-family: var(--headerFont);
-    font-size: var(--headerLarge);
     text-align: center;
     animation: var(--loaderanimation-rev);
     -webkit-animation: var(--loaderanimation-rev);
@@ -214,6 +220,7 @@ main {
     padding: 0;
     font-family: var(--headerFont);
     font-size: var(--headerLarge);
+    font-size: clamp(var(--headerMedium), 5vw, var(--headerLarge));
     text-align: center;
     color: #000;
     letter-spacing: 0.2em;
@@ -224,7 +231,8 @@ main {
     align-self: center;
     font-family: var(--headerFont);
     font-size: var(--headerLarge);
-    padding-left: 1em;
+    font-size: clamp(var(--headerSmall), 4vw, var(--headerLarge));
+    padding-left: 0.5em;
 }
 
 #randomdisplay {
