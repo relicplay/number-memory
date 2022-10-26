@@ -79,7 +79,6 @@ const hideNumberImages = (array) => {
 
 
 const compareNumbers = (guessedNumber, actualNumber) => {
-    //displayContent(`${userInputField.value[position]} VS ${randomNumbers[position]}`, testDisplay);
     guessedNumber == actualNumber ? getPoint(userInputField.value.length-1) : gameResult(userInputField.value.length, false);
 }
 
@@ -128,7 +127,6 @@ const gameResult = (strLen, outcome) => {
 
 const randomizeNumbers = (iterations) => {
     return Array(iterations).fill().map(() => Math.round((Math.random() * 8) + 1));
-    //return [1,3,6,5,5,8,9,2,3,2,1,1,4,8,9,3,9];
 }
 
 const resetClassLists = (targetElement) => {
