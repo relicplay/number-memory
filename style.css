@@ -25,9 +25,6 @@
     --boxBorderRadius: 25px 25px 0 0;
     --boxshadow: rgba(255, 255, 255, 0.35) 0px 5px 15px;
 
-    --loaderanimation: spin 0.5s linear infinite;
-    --loaderanimation-rev: spin-rev 0.5s linear infinite;
-
     --titlecol: #fff;
     --gameoverCol: rgba(255,0,0,0.5);
 }
@@ -189,30 +186,47 @@ main {
     font-weight: 700;
     text-align: center;
     padding: 0;
+    margin: 0;
 }
+
+
+#skipbutton {
+    margin-top: 4em;
+}
+
 
 .controls, .loadingscreen, .startscreen {
     min-height: 40vh;
 }
 
-.loader {
+
+.loader
+{
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    transform:translate(0,-25%);
     font-family: var(--headerFont);
     font-size: var(--headerLarge);
     font-size: clamp(var(--headerMedium), 5vw, var(--headerLarge));
-    display: flex;
-    flex-flow: column nowrap;
-    align-items: center;
-    justify-content: center;
     border: 16px solid #f3f3f3;
+    width: 2.5em;
+    height: 2.5em;
+    border-radius:50%;
+    text-align:center;
+}
+.loader:before
+{
+    content:'';
+    position: absolute;
+    width:100%;
+    height:100%;
+    border: 16px solid transparent;
     border-top: 16px solid #3498db;
-    border-radius: 50%;
-    width: 3em;
-    height: 3em;
-    transform: rotate(45deg);
-    animation: var(--loaderanimation);
-    -webkit-animation: var(--loaderanimation);
-    -moz-animation: var(--loaderanimation);
-    -ms-animation: var(--loaderanimation);
+    border-radius:50%;
+    animation: animate 0.5s linear infinite;
 }
 
 #levelslider {
@@ -227,10 +241,6 @@ main {
     width: 100%;
     height: 100%;
     text-align: center;
-    animation: var(--loaderanimation-rev);
-    -webkit-animation: var(--loaderanimation-rev);
-    -moz-animation: var(--loaderanimation-rev);
-    -ms-animation: var(--loaderanimation-rev);
 }
 
 #resultmessage {
@@ -286,7 +296,6 @@ main {
 }
 
 .image-hide {
-    /*should be set to 0 in final version*/
     opacity: 0;
 }
 
@@ -396,15 +405,11 @@ input[type=range] {
 
 
 
-
-  @keyframes spin {
-    from { -webkit-transform: rotate(0deg); }
-    to {   -webkit-transform: rotate(360deg); }
-}
-
-@keyframes spin-rev {
-    from { -webkit-transform: rotate(360deg); }
-    to {   -webkit-transform: rotate(0deg); }
+  
+@keyframes animate
+{
+  0% {transform:rotate(0deg);}
+  100% {transform:rotate(360deg);}
 }
 
 
