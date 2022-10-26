@@ -16,10 +16,15 @@
     --headerMedium: 2em;
     --headerSmall: 1em;
 
+    --textSizeRegular: 0.9em;
+    --textSizeSmall: 0.5em;
+
     --bgcol: #364765;
 
     --loaderanimation: spin 0.5s linear infinite;
     --loaderanimation-rev: spin-rev 0.5s linear infinite;
+
+    --titlecol: #fff;
 }
 
 
@@ -41,10 +46,11 @@ header {
     padding: 0;
     font-family: var(--headerFont);
     font-size: var(--headerLarge);
+    font-size: clamp(var(--headerSmall), 5vw, var(--headerLarge));
     text-align: center;
     word-spacing: 0.4em;
     letter-spacing: 0.3em;
-    color: #fff;
+    color: var(--titlecol);
 }
 
 main {
@@ -54,6 +60,15 @@ main {
     justify-content: center;
     align-items: center;
     max-width: 1900px;
+}
+
+.byline {
+    margin: 2em 0 0 0;
+    padding: 0;
+    font-family: var(--regularFont);
+    font-size: var(--textSizeRegular);
+    font-size: clamp(var(--textSizeSmall), 3vw, var(--textSizeRegular));
+    color: var(--titlecol);
 }
 
 .main-boxshadow {
