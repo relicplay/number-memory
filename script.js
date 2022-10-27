@@ -174,7 +174,7 @@ const resetGame = (retry) => {
     document.body.classList.remove('gameover');
     resetClassLists(document.querySelector('.controls'));
     document.querySelector('.controls').classList.add('hide');
-    secondsleft = 10;
+    secondsleft = 10 + Math.floor(level * 0.1);
     startTimer();
     resultMessage.textContent = `Level ${level}`;
 }
