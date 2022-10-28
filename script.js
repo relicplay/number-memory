@@ -27,6 +27,14 @@ userInputField.addEventListener("input", () => {
   }
 );
 
+
+document.body.addEventListener("keypress", function(event) {
+    if (event.key === "Enter") {
+        event.preventDefault();
+        nextButton.click();
+    }
+});
+
 levelSlider.addEventListener("input", () => {
     level = parseInt(levelSlider.value);
     levelDisplay.textContent = level;
