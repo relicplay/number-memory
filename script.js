@@ -31,7 +31,7 @@ userInputField.addEventListener("input", () => {
 document.body.addEventListener("keypress", function(event) {
     if (event.key === "Enter") {
         event.preventDefault();
-        nextButton.click();
+        secondsleft > 0 ? skipButton.click() : nextButton.click(); 
     }
 });
 
