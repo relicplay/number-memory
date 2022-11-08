@@ -93,16 +93,22 @@ const compareNumbers = (guessedNumber, actualNumber) => {
 
 const getPoint = (currentNumberPosition) => {
     showImage(currentNumberPosition);
+    /*
     if (currentNumberPosition >= randomNumbers.length-1) {
         gameResult(userInputField.value.length, true);
     } 
+    */
+    currentNumberPosition >= randomNumbers.length-1 && gameResult(userInputField.value.length, true);
 }
 
 const showImage = (id) => {
     image = document.querySelector(`#image${id}`);
+    /*
     if (image) {
         image.classList.remove("image-hide");
     }
+    */
+   image && image.classList.remove("image-hide");
 }
 
 const onlyAllowNumbers = (str) => {
@@ -169,10 +175,10 @@ const lockButton = (buttonId, buttonStatus) => {
     });
 }
 
-const resetGame = (retry) => {
+const resetGame = (retry = true) => {
     userInputField.value = '';
     lockButton('.buttonwrapper button', true);
-    if (retry === undefined) {
+    if (retry === true) {
         randomNumbers = randomizeNumbers(3+level);
     }
     userInputField.maxLength = randomNumbers.length;
