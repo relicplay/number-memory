@@ -97,7 +97,7 @@ const getPoint = (currentNumberPosition) => {
 }
 
 const showImage = (id) => {
-    image = document.querySelector(`#image${id}`);
+    const image = document.querySelector(`#image${id}`);
     image && image.classList.remove("image-hide");
 }
 
